@@ -1,1 +1,1 @@
-# Boilerplate React App
+# Simple React timer app
