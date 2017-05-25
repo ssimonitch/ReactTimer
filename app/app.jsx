@@ -2,6 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 var Main = require('Main');
+var Countdown = require('Countdown');
+var Timer = require('Timer');
 
 // Load foundation
 require('style!css!foundation-sites/dist/foundation.min.css')
@@ -13,7 +15,18 @@ require('style!css!sass!applicationStyles')
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
+      <Route path="countdown" component={Countdown} />
+      <IndexRoute component={Timer} />
     </Route>
   </Router>,
   document.getElementById('app')
 );
+
+
+// define routes
+
+// create new components for timer and Countdown
+
+// update styles to add bold when clicked
+
+// update webpack to create aliases for new components
