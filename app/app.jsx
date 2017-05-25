@@ -21,12 +21,3 @@ ReactDOM.render(
   </Router>,
   document.getElementById('app')
 );
-
-
-// define routes
-
-// create new components for timer and Countdown
-
-// update styles to add bold when clicked
-
-// update webpack to create aliases for new components
