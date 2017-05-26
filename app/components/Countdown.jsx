@@ -8,7 +8,7 @@ const Countdown = React.createClass({
   getInitialState: function() {
     return {
       count: 0,
-      countdownStatus: 'stopped', // stopped, started, paused
+      countdownStatus: 'stopped', // stopped, started, paused, final
     };
   },
 
@@ -21,6 +21,9 @@ const Countdown = React.createClass({
       // handle changes in state with switch statement
       switch (this.state.countdownStatus) {
         case 'started':
+          this.startTimer();
+          break;
+        case 'final':
           this.startTimer();
           break;
         case 'stopped':
@@ -61,6 +64,16 @@ const Countdown = React.createClass({
     });
   },
 
+  handleFinalCountdown: function(seconds) {
+    let audio = document.querySelector('audio');
+
+    audio.play();
+    this.setState({
+      count: seconds,
+      countdownStatus: 'final',
+    });
+  },
+
   handleStatusChange: function(newStatus) {
     this.setState({countdownStatus: newStatus});
   },
@@ -72,8 +85,8 @@ const Countdown = React.createClass({
       if (countdownStatus !== 'stopped') {
         return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange} />;
       } else {
-        return <CountdownForm onSetCountdown={this.handleSetCountdown}/>;
-      }
+        return <CountdownForm onSetCountdown={this.handleSetCountdown} onFinalCountdown={this.handleFinalCountdown}/>;
+      } 
     };
 
     return (

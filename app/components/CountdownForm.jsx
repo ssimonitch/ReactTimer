@@ -6,9 +6,13 @@ const CountdownForm = React.createClass({
     e.preventDefault();
     let strSeconds = this.refs.seconds.value;
 
-    if (strSeconds.match(/^[0-9]*$/)) {
+    if (strSeconds !== '' && strSeconds.match(/^[0-9]*$/)) {
       this.refs.seconds.value = '';
       this.props.onSetCountdown(parseInt(strSeconds, 10));
+    } else if (strSeconds.toUpperCase() === 'THE FINAL COUNTDOWN') {
+      this.props.onFinalCountdown(320);
+    } else {
+      alert('Please input valid number');
     }
   },
 
