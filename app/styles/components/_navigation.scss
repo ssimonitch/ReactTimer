@@ -7,16 +7,17 @@
     color: $nav-text-color;
   }
 
+  .menu > .menu-text > a {
+    display: inline;
+    padding: 0;
+  }
+
   .active-link {
     font-weight: bold;
   }
-}
 
-.menu >li > a {
-  padding: 0px;
-  display: inline;
-}
-
-#theman {
-  font-weight: normal;
+  #theman {
+    font-weight: normal;
+    padding-left: 5px;
+  }
 }

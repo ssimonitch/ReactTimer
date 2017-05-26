@@ -30,7 +30,7 @@ const Countdown = React.createClass({
           this.setState({count: 0});
         case 'paused':
           clearInterval(this.timer)
-          this.time = undefined;
+          this.timer = undefined;
           break;
       }
     }
@@ -86,7 +86,7 @@ const Countdown = React.createClass({
         return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange} />;
       } else {
         return <CountdownForm onSetCountdown={this.handleSetCountdown} onFinalCountdown={this.handleFinalCountdown}/>;
-      } 
+      }
     };
 
     return (
